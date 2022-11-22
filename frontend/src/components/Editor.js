@@ -52,7 +52,7 @@ class Editor extends React.Component {
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: this.props.image.length === 0 ? process.env.PUBLIC_URL + "/placeholder.png" : this.props.image,
         tagList: this.props.tagList,
       };
 
@@ -121,7 +121,7 @@ class Editor extends React.Component {
                       className="form-control"
                       type="text"
                       placeholder="Image url"
-                      value={this.props.image}
+                      value={this.props.image === "/placeholder.png" ? "": this.props.image}
                       onChange={this.changeImage}
                     />
                   </fieldset>
